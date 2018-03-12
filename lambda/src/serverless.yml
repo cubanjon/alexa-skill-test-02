@@ -1,0 +1,45 @@
+service: uncle-jon-skill
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  region: us-east-1
+
+functions:
+  uncleJonSkill:
+    handler: index.handler
+    events:
+      - alexaSkill:
+          appId: amzn1.ask.skill.e3ea1922-0cbe-4e5b-a857-a2b3a0cc0f26
+          
+
+resources:  
+  Resources:
+    DynamoDbTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: uncle_jon_skill_jingle
+        AttributeDefinitions:
+          - AttributeName: userId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: userId
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
+    DynamoDBIamPolicy:
+      Type: AWS::IAM::Policy
+      DependsOn: DynamoDbTable
+      Properties:
+        PolicyName: lambda-dynamodb
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action:
+                - dynamodb:GetItem
+                - dynamodb:PutItem
+              Resource: arn:aws:dynamodb:*:*:table/uncle_jon_skill_jingle
+        Roles:
+          - Ref: IamRoleLambdaExecution

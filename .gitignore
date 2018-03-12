@@ -1,0 +1,11 @@
+node_modules
+**/.idea
+**/.vscode
+**/*.zip
+**/.ask/config
+**/node_modules
+**/*.zip
+**/package-lock.json
+sync_upstream.sh
+**/.ask/config
+.DS_STORE
