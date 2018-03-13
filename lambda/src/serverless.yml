@@ -9,9 +9,7 @@ functions:
   uncleJonSkill:
     handler: index.handler
     events:
-      - alexaSkill:
-          appId: amzn1.ask.skill.e3ea1922-0cbe-4e5b-a857-a2b3a0cc0f26
-          
+      - alexaSkill
 
 resources:  
   Resources:
@@ -38,8 +36,14 @@ resources:
           Statement:
             - Effect: Allow
               Action:
+                - dynamodb:DescribeTable
+                - dynamodb:Query
+                - dynamodb:Scan
                 - dynamodb:GetItem
                 - dynamodb:PutItem
+                - dynamodb:UpdateItem
+                - dynamodb:DeleteItem
+                - dynamodb:CreateTable
               Resource: arn:aws:dynamodb:*:*:table/uncle_jon_skill_jingle
         Roles:
           - Ref: IamRoleLambdaExecution
