@@ -1,11 +1,12 @@
 'use strict';
-/*
+
 var alexa = require('alexa-sdk');
 var constants = require('./constants');
 var stateHandlers = require('./intentHandlers');
 var audioEventHandlers = require('./audioEventHandlers');
 var languageStrings = require('./strings');
-*/
+
+/*
 const getRandomInt = (min, max) => Math.floor(Math.random() * ((max - min) + 1)) + min;
 
 module.exports.handler = (event, context, callback) => {
@@ -16,7 +17,7 @@ module.exports.handler = (event, context, callback) => {
       response: {
         outputSpeech: {
           type: 'PlainText',
-          text: `Uncle Jon says your lucky number is ${number}`,
+          text: `Uncle Jon says... your lucky number is ${number}`,
         },
         shouldEndSession: false,
       },
@@ -24,8 +25,8 @@ module.exports.handler = (event, context, callback) => {
   
     callback(null, response);
   };
-/*
-module.exports.handler = (event, context, callback) => {
+*/
+exports.handler = (event, context, callback) => {
 
     if (constants.debug) {
         console.log("\n" + "******************* REQUEST **********************");
@@ -51,4 +52,3 @@ module.exports.handler = (event, context, callback) => {
 
     skill.execute();
 };
-*/
