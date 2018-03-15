@@ -75,11 +75,11 @@ function shouldPlayJingle(userId) {
 
             // When last played is more that playOnceEvery ago, agree to play the jingle
             WILL_PLAY_JINGLE = (lastPlayedEPOCH === 0) || (lastPlayedEPOCH + constants.jingle.playOnceEvery < now);
-            // console.log("lastPlayedEPOCH : " + lastPlayedEPOCH);
-            // console.log("playOnceEvery   : " + constants.jingle.playOnceEvery);
-            // console.log("now             : " + now);
-            // console.log("last + every    : " + (lastPlayedEPOCH + constants.jingle.playOnceEvery));
-            // console.log("WILL PLAY       : " + WILL_PLAY_JINGLE);
+             console.log("lastPlayedEPOCH : " + lastPlayedEPOCH);
+             console.log("playOnceEvery   : " + constants.jingle.playOnceEvery);
+             console.log("now             : " + now);
+             console.log("last + every    : " + (lastPlayedEPOCH + constants.jingle.playOnceEvery));
+             console.log("WILL PLAY       : " + WILL_PLAY_JINGLE);
 
             if (WILL_PLAY_JINGLE) {
 
@@ -103,8 +103,30 @@ function shouldPlayJingle(userId) {
     });
 }
 
+const getRandomInt = (min, max) => Math.floor(Math.random() * ((max - min) + 1)) + min;
+
 var intentHandlers = {
+    'UncleJonLuckyNumber': function () {
+        const upperLimit = event.request.intent.slots.UpperLimit.value || 100;
+        const number = getRandomInt(0, upperLimit);
+        const response = {
+          version: '1.0',
+          response: {
+            outputSpeech: {
+              type: 'PlainText',
+              text: `Uncle Jon says your lucky number is ${number}`
+             // ssml: `Uncle Jon says lean in close... <amazon:effect name="whisper">your lucky number is ${number}</amazon:effect>`,
+            },
+            shouldEndSession: false,
+          },
+        };
+      
+        callback(null, response);
+    },
     'LaunchRequest': function () {
+        this.emit('PlayAudio');
+    },
+    'UncleJonSingASong': function () {
         this.emit('PlayAudio');
     },
     'PlayAudio': function () {

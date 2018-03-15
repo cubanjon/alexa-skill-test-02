@@ -6,12 +6,12 @@ let en = {
         subtitle: 'Less bla bla, more la la',
         cardContent: "Fun times with Uncle Jon",
         image: {
-            largeImageUrl: 'https://s3.amazonaws.com/uncle-jon-media/alexa-artwork-1200.png',
-            smallImageUrl: 'https://s3.amazonaws.com/uncle-jon-media/alexa-artwork-720.png'
+            largeImageUrl: 'https://uncle-jon-media.s3-us-west-2.amazonaws.com/alexa-artwork-1200.png',
+            smallImageUrl: 'https://uncle-jon-media.s3-us-west-2.amazonaws.com/alexa-artwork-720.png'
         }
     },
-    url: 'https://uncle-jon-media.s3-us-west-2.amazonaws.com/2016-your-man.mp3',
-    startJingle : 'https://s3.amazonaws.com/alexademo.ninja/maxi80/jingle.m4a'    
+    url: 'https://uncle-jon-media.s3-us-west-2.amazonaws.com/uncle_jon_puff_the_magic_dragon.mp3',
+    startJingle : 'https://uncle-jon-media.s3-us-west-2.amazonaws.com/jingle.m4a'    
 };
 
 let de = { // TODO add german translation
@@ -20,12 +20,12 @@ let de = { // TODO add german translation
         subtitle: 'Less bla bla, more la la',
         cardContent: "Fun times with Uncle Jon",
         image: {
-            largeImageUrl: 'https://s3.amazonaws.com/uncle-jon-media/alexa-artwork-1200.png',
-            smallImageUrl: 'https://s3.amazonaws.com/uncle-jon-media/alexa-artwork-720.png'
+            largeImageUrl: 'https://uncle-jon-media.s3-us-west-2.amazonaws.com/alexa-artwork-1200.png',
+            smallImageUrl: 'https://uncle-jon-media.s3-us-west-2.amazonaws.com/alexa-artwork-720.png'
         }
     },
-    url: 'https://uncle-jon-media.s3-us-west-2.amazonaws.com/2016-your-man.mp3',
-    startJingle : 'https://s3.amazonaws.com/alexademo.ninja/maxi80/jingle.m4a'    
+    url: 'https://uncle-jon-media.s3-us-west-2.amazonaws.com/uncle_jon_puff_the_magic_dragon.mp3',
+    startJingle : 'https://uncle-jon-media.s3-us-west-2.amazonaws.com/jingle.m4a'    
 } 
 
 let globalAudioData = {
